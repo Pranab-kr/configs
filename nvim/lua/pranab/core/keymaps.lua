@@ -31,24 +31,29 @@ vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 vim.keymap.set("n", "x", '"_x', opts)
 
 -- Replace the word cursor is on globally
-vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = "Replace word cursor is on globally" })
+vim.keymap.set(
+	"n",
+	"<leader>s",
+	[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
+	{ desc = "Replace word cursor is on globally" }
+)
 -- Executes shell command from in here making file executable
 vim.keymap.set("n", "<leader>X", "<cmd>!chmod +x %<CR>", { silent = true, desc = "makes file executable" })
 
 -- Highlight when yanking (copying) text
 vim.api.nvim_create_autocmd("TextYankPost", {
-    desc = "Highlight when yanking (copying) text",
-    group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
-    callback = function()
-        vim.highlight.on_yank()
-    end,
+	desc = "Highlight when yanking (copying) text",
+	group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
+	callback = function()
+		vim.highlight.on_yank()
+	end,
 })
 
 -- tab stuff
-vim.keymap.set("n", "<leader>to", "<cmd>tabnew<CR>")   --open new tab
+vim.keymap.set("n", "<leader>to", "<cmd>tabnew<CR>") --open new tab
 vim.keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>") --close current tab
-vim.keymap.set("n", "<leader>tn", "<cmd>tabn<CR>")     --go to next
-vim.keymap.set("n", "<leader>tp", "<cmd>tabp<CR>")     --go to pre
+vim.keymap.set("n", "<leader>tn", "<cmd>tabn<CR>") --go to next
+vim.keymap.set("n", "<leader>tp", "<cmd>tabp<CR>") --go to pre
 vim.keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>") --open current tab in new tab
 
 --split management
@@ -62,7 +67,7 @@ vim.keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current spli
 
 -- Copy filepath to the clipboard
 vim.keymap.set("n", "<leader>fp", function()
-    local filePath = vim.fn.expand("%:~")
-    vim.fn.setreg("+", filePath)
-    print("File path copied to clipboard: " .. filePath)
+	local filePath = vim.fn.expand("%:~")
+	vim.fn.setreg("+", filePath)
+	print("File path copied to clipboard: " .. filePath)
 end, { desc = "Copy file path to clipboard" })

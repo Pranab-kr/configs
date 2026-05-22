@@ -18,6 +18,8 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup(
     {
         { import = "pranab.plugins" },
+
+        { import = "pranab.plugins.lsp" },
     },
     {
         checker = {
