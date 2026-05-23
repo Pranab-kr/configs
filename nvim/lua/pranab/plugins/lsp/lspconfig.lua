@@ -12,8 +12,9 @@ return {
 			callback = function(ev)
 				local client = vim.lsp.get_client_by_id(ev.data.client_id)
 
+				-- inlay_hint activation
 				if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
-					vim.lsp.inlay_hint.enable(true, { bufnr = ev.buf })
+					vim.lsp.inlay_hint.enable(false, { bufnr = ev.buf })
 				end
 
 				-- Buffer local mappings
@@ -62,7 +63,7 @@ return {
 				-- for inlay ghost text suggestrion
 				if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
 					opts.desc = "Toggle inlay hints"
-					vim.keymap.set("n", "<leader>uh", function()
+					vim.keymap.set("n", "<leader>ih", function()
 						local enabled = vim.lsp.inlay_hint.is_enabled({ bufnr = ev.buf })
 						vim.lsp.inlay_hint.enable(not enabled, { bufnr = ev.buf })
 					end, opts)
@@ -331,6 +332,7 @@ return {
 			"tailwindcss",
 			"marksman",
 			"rust_analyzer",
+			"clangd",
 		})
 	end,
 }

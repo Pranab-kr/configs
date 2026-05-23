@@ -1,3 +1,28 @@
+local function load_dashboard_art(path)
+	local expanded = vim.fn.expand(path)
+	local ok, lines = pcall(vim.fn.readfile, expanded)
+
+	if not ok or not lines or vim.tbl_isempty(lines) then
+		local message = "ASCII art not found: " .. expanded
+		return {
+			text = message,
+			width = vim.fn.strdisplaywidth(message),
+		}
+	end
+
+	local width = 0
+	for _, line in ipairs(lines) do
+		width = math.max(width, vim.fn.strdisplaywidth(line))
+	end
+
+	return {
+		text = table.concat(lines, "\n"),
+		width = width,
+	}
+end
+
+local dashboard_art = load_dashboard_art("~/Downloads/asciiArt/hiyuki.ascii")
+
 return {
 	{
 		"folke/snacks.nvim",
@@ -116,20 +141,19 @@ return {
 
 			image = {},
 			dashboard = {
-				-- enabled = true,
-				-- 	sections = {
-				-- 		{ section = "header" },
-				-- 		{ section = "keys", gap = 1, padding = 1 },
-				-- 		{ section = "startup" },
-				-- 		{
-				-- 			section = "terminal",
-				-- 			cmd = "ascii-image-converter ~/.config/neofetch/pngs/yaefox.png -C -c",
-				-- 			random = 15,
-				-- 			pane = 2,
-				-- 			indent = 15,
-				-- 			height = 30,
-				-- 		},
-				-- 	},
+				enabled = true,
+				width = math.max(60, dashboard_art.width),
+				sections = {
+					{ section = "header" },
+					{ section = "keys", gap = 2, padding = 2 },
+					{ section = "startup" },
+					{
+						pane = 2,
+						text = {
+							{ dashboard_art.text, hl = "SnacksDashboardTerminal" },
+						},
+					},
+				},
 			},
 			animate = {
 				duration = {
@@ -183,7 +207,7 @@ return {
 				desc = "Fast Rename Current File",
 			},
 			{
-				"<leader>dB",
+				"<leader>bd",
 				function()
 					require("snacks").bufdelete()
 				end,
@@ -226,6 +250,20 @@ return {
 					require("snacks").picker.keymaps({ layout = "ivy" })
 				end,
 				desc = "Search Keymaps (Snacks Picker)",
+			},
+			{
+				"<leader>pb",
+				function()
+					require("snacks").picker.buffers()
+				end,
+				desc = "Buffers",
+			},
+			{
+				"<leader><space>",
+				function()
+					require("snacks").picker.smart()
+				end,
+				desc = "Smart Find Files",
 			},
 
 			-- Git Stuff
