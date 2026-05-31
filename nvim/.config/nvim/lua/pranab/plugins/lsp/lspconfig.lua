@@ -333,6 +333,7 @@ return {
 			"marksman",
 			"rust_analyzer",
 			"clangd",
+			"pyright",
 		})
 	end,
 }

@@ -37,6 +37,7 @@ return {
 				"emmet_language_server",
 				"marksman",
 				"rust_analyzer",
+				"pyright",
 			},
 		})
 

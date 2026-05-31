@@ -25,7 +25,7 @@ vim.keymap.set("i", "<C-c>", "<Esc>")
 vim.keymap.set("n", "<C-c>", ":nohl<CR>", { desc = "Clear search hl", silent = true })
 
 -- format built in
-vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
+vim.keymap.set("n", "<leader>ff", vim.lsp.buf.format, { desc = "Format file with LSP" })
 
 -- prevent x delete from registering when next paste
 vim.keymap.set("n", "x", '"_x', opts)

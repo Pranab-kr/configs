@@ -21,7 +21,7 @@ local function load_dashboard_art(path)
 	}
 end
 
-local dashboard_art = load_dashboard_art("~/Downloads/asciiArt/hiyuki.ascii")
+local dashboard_art = load_dashboard_art("~/Downloads/asciiArt/alya.ascii")
 
 return {
 	{
@@ -164,24 +164,25 @@ return {
 				fps = 120,
 			},
 			notifier = {},
+
 			indent = {},
 			scroll = {},
 		},
-		config = function(_, opts)
-			local snacks = require("snacks")
-
-			snacks.setup(opts)
-
-			vim.notify = function(msg, level, notify_opts)
-				if type(level) == "table" and notify_opts == nil then
-					notify_opts = level
-					level = notify_opts.level
-				end
-
-				notify_opts = vim.tbl_extend("force", notify_opts or {}, { level = level })
-				return snacks.notify(msg, notify_opts)
-			end
-		end,
+		-- config = function(_, opts)
+		-- 	local snacks = require("snacks")
+		--
+		-- 	snacks.setup(opts)
+		--
+		-- 	vim.notify = function(msg, level, notify_opts)
+		-- 		if type(level) == "table" and notify_opts == nil then
+		-- 			notify_opts = level
+		-- 			level = notify_opts.level
+		-- 		end
+		--
+		-- 		notify_opts = vim.tbl_extend("force", notify_opts or {}, { level = level })
+		-- 		return snacks.notify(msg, notify_opts)
+		-- 	end
+		-- end,
 
 		-- NOTE: Keymaps
 		keys = {

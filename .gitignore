@@ -1,2 +1,3 @@
 .codex
+tmux/.config/tmux/plugins/**
 nvim.log
