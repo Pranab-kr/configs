@@ -343,51 +343,7 @@ return {
 		lazy = false,
 		priority = 1000,
 		config = function()
-			require("nordic").setup({
-				bold_keywords = true,
-				italic_comments = false,
-				transparent = {
-					bg = true,
-					float = false,
-				},
-				bright_border = true,
-				reduced_blue = false,
-				swap_backgrounds = false,
-				telescope = {
-					style = "flat",
-				},
-				on_palette = function(palette)
-					palette.blue0 = "#6C9EA8"
-					palette.blue1 = "#7FB8C2"
-					palette.blue2 = "#8ED4D8"
-					palette.cyan.base = "#87CFCF"
-					palette.cyan.bright = "#9ADADA"
-					palette.cyan.dim = "#76BABA"
-				end,
-				on_highlight = function(highlights, palette)
-					highlights.ColorColumn = { bg = "#1C232B" }
-					highlights.CursorLine = { bg = "#1A232A" }
-					highlights.Visual = { bg = "#23333B" }
-
-					highlights.NormalFloat = { bg = "#1B232A" }
-					highlights.FloatBorder = { fg = palette.cyan.base, bg = "#1B232A" }
-					highlights.FloatTitle = { fg = palette.cyan.bright, bg = "#1B232A", bold = true }
-
-					highlights.Pmenu = { fg = palette.white0, bg = "#182127" }
-					highlights.PmenuSel = { fg = palette.white1, bg = "#27414A", bold = true }
-					highlights.PmenuSbar = { bg = "#202A31" }
-					highlights.PmenuThumb = { bg = palette.cyan.dim }
-
-					highlights.TelescopeTitle = { fg = palette.cyan.bright, bold = true }
-					highlights.TelescopePromptBorder = { fg = palette.cyan.base, bg = "#1B232A" }
-					highlights.TelescopeResultsBorder = { fg = palette.blue1, bg = "#1B232A" }
-					highlights.TelescopePreviewBorder = { fg = palette.blue1, bg = "#1B232A" }
-
-					highlights.WinSeparator = { fg = "#33505A" }
-				end,
-			})
-
-			-- vim.cmd.colorscheme("nordic")
+			vim.cmd.colorscheme("nordic")
 		end,
 	},
 }

@@ -2,7 +2,6 @@ return {
 	"neovim/nvim-lspconfig",
 	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
-		"hrsh7th/cmp-nvim-lsp",
 		{ "antosha417/nvim-lsp-file-operations", config = true },
 	},
 	config = function()
@@ -56,6 +55,7 @@ return {
 				opts.desc = "Restart LSP"
 				vim.keymap.set("n", "<leader>rs", ":lsp restart<CR>", opts)
 
+				opts.desc = "Show signature help"
 				vim.keymap.set("i", "<C-h>", function()
 					vim.lsp.buf.signature_help()
 				end, opts)
@@ -79,82 +79,30 @@ return {
 			[vim.diagnostic.severity.HINT] = "󰠠 ",
 			[vim.diagnostic.severity.INFO] = " ",
 		}
+		-- update diagnostic config function
+		vim.diagnostic.config({
+			signs = { text = signs },
+			virtual_text = true,
+			underline = true,
+			update_in_insert = false,
+			float = {
+				focusable = false,
+				style = "minimal",
+				border = "rounded",
+				source = true,
+			},
+		})
 
-		local virtual_text_enabled = true
-		local augroup = vim.api.nvim_create_augroup("UserDiagnosticHover", { clear = true })
-
-		local function has_floating_win()
-			for _, win in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
-				local config = vim.api.nvim_win_get_config(win)
-				if config.relative ~= "" then
-					return true
-				end
-			end
-
-			return false
-		end
-
-		local function cursor_over_diagnostic()
-			local line = vim.api.nvim_win_get_cursor(0)[1] - 1
-			return not vim.tbl_isempty(vim.diagnostic.get(0, { lnum = line }))
-		end
-
-		local function update_diagnostic_config()
-			vim.diagnostic.config({
-				signs = { text = signs },
-				virtual_text = virtual_text_enabled,
-				underline = true, -- Always on
-				update_in_insert = true,
-				float = {
-					focusable = false,
-					style = "minimal",
-					border = "rounded",
-					source = true,
-				},
-			})
-		end
-
-		update_diagnostic_config()
-
-		-- <leader>lx toggle for virtual text (no hover changes)
+		-- toggle for virtual text
 		vim.keymap.set("n", "<leader>lx", function()
-			virtual_text_enabled = not virtual_text_enabled
-			update_diagnostic_config()
+			local current = vim.diagnostic.config().virtual_text
+			vim.diagnostic.config({ virtual_text = not current })
 		end, { desc = "Toggle LSP virtual text" })
-
-		-- <leader>ll toggle between virtual text mode and precise hover mode
-		vim.keymap.set("n", "<leader>ll", function()
-			virtual_text_enabled = not virtual_text_enabled
-			update_diagnostic_config()
-
-			-- Clear autocmds first
-			vim.api.nvim_clear_autocmds({ group = augroup })
-
-			-- Enable hover only when virtual text is off
-			if not virtual_text_enabled then
-				vim.api.nvim_create_autocmd("CursorHold", {
-					group = augroup,
-					callback = function()
-						if cursor_over_diagnostic() and not has_floating_win() then
-							vim.diagnostic.open_float(nil, {
-								focusable = false,
-								close_events = {
-									"CursorMoved",
-									"CursorMovedI",
-									"BufHidden",
-									"InsertCharPre",
-									"WinLeave",
-								},
-							})
-						end
-					end,
-				})
-			end
-		end, { desc = "Toggle LSP diagnostics virtual text or precise hover" })
-
 		-- NOTE: Setup servers
-		local cmp_nvim_lsp = require("cmp_nvim_lsp")
-		local capabilities = cmp_nvim_lsp.default_capabilities()
+		local capabilities = vim.lsp.protocol.make_client_capabilities()
+
+		-- blink cmp
+		capabilities = require("blink-cmp").get_lsp_capabilities(capabilities)
 
 		-- Global LSP settings (applied to all servers)
 		vim.lsp.config("*", {

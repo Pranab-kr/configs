@@ -71,3 +71,13 @@ vim.keymap.set("n", "<leader>fp", function()
 	vim.fn.setreg("+", filePath)
 	print("File path copied to clipboard: " .. filePath)
 end, { desc = "Copy file path to clipboard" })
+
+-- restart
+vim.keymap.set("n", "<leader>re", "<cmd>restart<cr>", {
+	desc = "Restart Neovim (:restart)",
+})
+
+vim.keymap.set("n", "<leader>lr", function()
+	vim.cmd("lsp restart")
+	vim.notify("LSP restarted", vim.log.levels.INFO)
+end, { desc = "Restart LSP" })
