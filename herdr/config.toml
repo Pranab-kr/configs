@@ -1,0 +1,20 @@
+onboarding = false
+[theme]
+name = "catppuccin"
+auto_switch = false
+[keys]
+settings = "prefix+;"
+rename_tab = "prefix+,"
+reload_config = "prefix+r"
+split_vertical = "prefix+|"
+# navigate_workspace_up = "ctrl+k"
+# navigate_workspace_down = "ctrl+j"
+focus_pane_left = "ctrl+h"
+focus_pane_down = "ctrl+j"
+focus_pane_up = "ctrl+k"
+focus_pane_right = "ctrl+l"
+resize_mode = "prefix+R"
+zoom = "prefix+m"
+new_workspace = "prefix+shift+w"
+rename_workspace = "prefix+$"
+goto = "prefix+s"

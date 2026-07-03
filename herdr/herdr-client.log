@@ -1,0 +1,55 @@
+2026-07-02T08:55:07.609634Z  INFO herdr::logging: herdr starting event="app.startup" subsystem="client" outcome="started" pid=16681
+2026-07-02T08:55:07.609660Z  INFO herdr::client: connecting to server path=/home/pranab/.config/herdr/herdr-client.sock
+2026-07-02T08:55:07.673071Z  INFO herdr::client: handshake succeeded version=14 encoding=SemanticFrame
+2026-07-02T08:56:44.479260Z  INFO herdr::logging: herdr exiting event="app.shutdown" subsystem="client" outcome="completed" pid=16681
+2026-07-02T08:56:48.116468Z  INFO herdr::logging: herdr starting event="app.startup" subsystem="client" outcome="started" pid=17583
+2026-07-02T08:56:48.116489Z  INFO herdr::client: connecting to server path=/home/pranab/.config/herdr/herdr-client.sock
+2026-07-02T08:56:48.249929Z  INFO herdr::client: handshake succeeded version=14 encoding=SemanticFrame
+2026-07-02T08:58:41.710705Z  INFO herdr::logging: herdr exiting event="app.shutdown" subsystem="client" outcome="completed" pid=17583
+2026-07-02T18:23:39.519800Z  INFO herdr::logging: herdr starting event="app.startup" subsystem="client" outcome="started" pid=6091
+2026-07-02T18:23:39.519838Z  INFO herdr::client: connecting to server path=/home/pranab/.config/herdr/herdr-client.sock
+2026-07-02T18:23:39.556231Z  INFO herdr::client: handshake succeeded version=14 encoding=SemanticFrame
+2026-07-02T18:24:33.863200Z  INFO herdr::logging: herdr exiting event="app.shutdown" subsystem="client" outcome="completed" pid=6091
+2026-07-02T18:24:36.609517Z  INFO herdr::logging: herdr starting event="app.startup" subsystem="client" outcome="started" pid=6395
+2026-07-02T18:24:36.609536Z  INFO herdr::client: connecting to server path=/home/pranab/.config/herdr/herdr-client.sock
+2026-07-02T18:24:36.625747Z  INFO herdr::client: handshake succeeded version=14 encoding=SemanticFrame
+2026-07-02T18:24:51.355877Z  INFO herdr::logging: herdr exiting event="app.shutdown" subsystem="client" outcome="completed" pid=6395
+2026-07-02T18:25:46.599692Z  INFO herdr::logging: herdr starting event="app.startup" subsystem="client" outcome="started" pid=6585
+2026-07-02T18:25:46.599718Z  INFO herdr::client: connecting to server path=/home/pranab/.config/herdr/herdr-client.sock
+2026-07-02T18:25:46.646636Z  INFO herdr::client: handshake succeeded version=14 encoding=SemanticFrame
+2026-07-02T18:30:40.706886Z  INFO herdr::logging: herdr exiting event="app.shutdown" subsystem="client" outcome="completed" pid=6585
+2026-07-02T18:30:43.225916Z  INFO herdr::logging: herdr starting event="app.startup" subsystem="client" outcome="started" pid=8394
+2026-07-02T18:30:43.225938Z  INFO herdr::client: connecting to server path=/home/pranab/.config/herdr/herdr-client.sock
+2026-07-02T18:30:43.260193Z  INFO herdr::client: handshake succeeded version=14 encoding=SemanticFrame
+2026-07-02T18:31:19.619450Z  INFO herdr::logging: herdr exiting event="app.shutdown" subsystem="client" outcome="completed" pid=8394
+2026-07-02T18:31:21.967509Z  INFO herdr::logging: herdr starting event="app.startup" subsystem="client" outcome="started" pid=8811
+2026-07-02T18:31:21.967529Z  INFO herdr::client: connecting to server path=/home/pranab/.config/herdr/herdr-client.sock
+2026-07-02T18:31:22.001213Z  INFO herdr::client: handshake succeeded version=14 encoding=SemanticFrame
+2026-07-02T18:32:58.341456Z  INFO herdr::logging: herdr starting event="app.startup" subsystem="client" outcome="started" pid=9670
+2026-07-02T18:32:58.341487Z  INFO herdr::client: connecting to server path=/home/pranab/.config/herdr/herdr-client.sock
+2026-07-02T18:32:58.351650Z  INFO herdr::client: handshake succeeded version=14 encoding=SemanticFrame
+2026-07-02T18:33:08.282004Z  INFO herdr::logging: herdr exiting event="app.shutdown" subsystem="client" outcome="completed" pid=8811
+2026-07-02T18:33:10.617604Z  INFO herdr::logging: herdr starting event="app.startup" subsystem="client" outcome="started" pid=9752
+2026-07-02T18:33:10.617627Z  INFO herdr::client: connecting to server path=/home/pranab/.config/herdr/herdr-client.sock
+2026-07-02T18:33:10.649059Z  INFO herdr::client: handshake succeeded version=14 encoding=SemanticFrame
+2026-07-02T18:37:02.761717Z  INFO herdr::logging: herdr exiting event="app.shutdown" subsystem="client" outcome="completed" pid=9752
+2026-07-02T18:37:04.860794Z  INFO herdr::logging: herdr starting event="app.startup" subsystem="client" outcome="started" pid=10752
+2026-07-02T18:37:04.860825Z  INFO herdr::client: connecting to server path=/home/pranab/.config/herdr/herdr-client.sock
+2026-07-02T18:37:04.895623Z  INFO herdr::client: handshake succeeded version=14 encoding=SemanticFrame
+2026-07-02T18:52:31.590384Z  INFO herdr::logging: herdr exiting event="app.shutdown" subsystem="client" outcome="completed" pid=10752
+2026-07-02T18:52:34.115647Z  INFO herdr::logging: herdr starting event="app.startup" subsystem="client" outcome="started" pid=14055
+2026-07-02T18:52:34.115677Z  INFO herdr::client: connecting to server path=/home/pranab/.config/herdr/herdr-client.sock
+2026-07-02T18:52:34.155826Z  INFO herdr::client: handshake succeeded version=14 encoding=SemanticFrame
+2026-07-02T18:53:22.766363Z  INFO herdr::logging: herdr exiting event="app.shutdown" subsystem="client" outcome="completed" pid=14055
+2026-07-02T18:53:24.929706Z  INFO herdr::logging: herdr starting event="app.startup" subsystem="client" outcome="started" pid=14674
+2026-07-02T18:53:24.929727Z  INFO herdr::client: connecting to server path=/home/pranab/.config/herdr/herdr-client.sock
+2026-07-02T18:53:25.028195Z  INFO herdr::client: handshake succeeded version=14 encoding=SemanticFrame
+2026-07-02T18:53:51.718591Z  INFO herdr::logging: herdr exiting event="app.shutdown" subsystem="client" outcome="completed" pid=14674
+2026-07-02T18:53:54.968491Z  INFO herdr::logging: herdr starting event="app.startup" subsystem="client" outcome="started" pid=14752
+2026-07-02T18:53:54.968511Z  INFO herdr::client: connecting to server path=/home/pranab/.config/herdr/herdr-client.sock
+2026-07-02T18:53:55.001022Z  INFO herdr::client: handshake succeeded version=14 encoding=SemanticFrame
+2026-07-02T18:54:25.305203Z  INFO herdr::logging: herdr exiting event="app.shutdown" subsystem="client" outcome="completed" pid=14752
+2026-07-02T18:54:27.174552Z  INFO herdr::logging: herdr starting event="app.startup" subsystem="client" outcome="started" pid=14879
+2026-07-02T18:54:27.174582Z  INFO herdr::client: connecting to server path=/home/pranab/.config/herdr/herdr-client.sock
+2026-07-02T18:54:27.210371Z  INFO herdr::client: handshake succeeded version=14 encoding=SemanticFrame
+2026-07-02T18:54:55.438126Z  INFO herdr::logging: herdr exiting event="app.shutdown" subsystem="client" outcome="completed" pid=14879
