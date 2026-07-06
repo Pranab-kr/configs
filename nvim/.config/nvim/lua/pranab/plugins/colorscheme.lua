@@ -12,7 +12,7 @@ return {
 				styles = {
 					bold = true,
 					italic = false,
-					transparency = true,
+					transparency = false,
 				},
 				enable = {
 					terminal = true,
@@ -95,7 +95,7 @@ return {
 					Pmenu = { bg = "#1d2021" }, -- completion menu background
 				},
 				dim_inactive = false,
-				transparent_mode = true,
+				transparent_mode = false,
 			})
 		end,
 	},
@@ -111,7 +111,7 @@ return {
 				keywordStyle = { italic = false },
 				statementStyle = { bold = true },
 				typeStyle = {},
-				transparent = true,
+				transparent = false,
 				dimInactive = false,
 				terminalColors = true,
 				colors = { -- modify theme and palette colors
@@ -279,7 +279,7 @@ return {
 					light = "latte",
 					dark = "mocha",
 				},
-				transparent_background = true,
+				transparent_background = false,
 				dim_inactive = {
 					enabled = false,
 					shade = "dark",
@@ -334,7 +334,7 @@ return {
 				},
 			})
 
-			-- vim.cmd.colorscheme("ca/tppuccin")
+			-- vim.cmd.colorscheme("catppuccin")
 		end,
 	},
 
@@ -343,7 +343,36 @@ return {
 		lazy = false,
 		priority = 1000,
 		config = function()
-			vim.cmd.colorscheme("nordic")
+			-- vim.cmd.colorscheme("nordic")
+		end,
+	},
+	{
+		"neanias/everforest-nvim",
+		priority = 1000, -- load before other plugins
+		lazy = false, -- load during startup
+
+		config = function()
+			require("everforest").setup({
+				background = "hard", -- soft, medium, hard
+				transparent_background_level = 0,
+				italics = true,
+				disable_italic_comments = false,
+			})
+
+			vim.o.background = "dark"
+			-- vim.cmd.colorscheme("everforest")
+		end,
+	},
+	{
+		"atdma/caelestia-nvim",
+		lazy = false,
+		priority = 1000,
+		opts = {
+			transparent = false,
+		},
+		config = function(_, opts)
+			require("caelestia").setup(opts)
+			-- vim.cmd.colorscheme("caelestia")
 		end,
 	},
 }
