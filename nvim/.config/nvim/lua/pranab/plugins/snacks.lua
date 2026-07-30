@@ -66,6 +66,13 @@ return {
 						icon_width = 2,
 					},
 				},
+				-- explorer  picker
+				sources = {
+					explorer = {
+						-- your explorer picker configuration comes here
+						-- or leave it empty to use the default settings
+					},
+				},
 				layout = {
 					-- presets options : "default" , "ivy" , "ivy-split" , "telescope" , "vscode", "select" , "sidebar"
 					-- override picker layout in keymaps function as a param below
@@ -167,6 +174,20 @@ return {
 
 			indent = {},
 			scroll = {},
+			explorer = {
+				-- your explorer configuration comes here
+				-- or leave it empty to use the default settings
+				-- refer to the configuration section below
+			},
+			terminal = {
+				win = {
+					style = "terminal",
+					position = "float", -- Options: "float", "bottom", "sidebar"
+					border = "rounded",
+					width = 0.8,
+					height = 0.8,
+				},
+			},
 		},
 		-- config = function(_, opts)
 		-- 	local snacks = require("snacks")
@@ -213,6 +234,14 @@ return {
 					require("snacks").bufdelete()
 				end,
 				desc = "Delete or Close Buffer  (Confirm)",
+			},
+
+			{
+				"<leader>bD",
+				function()
+					require("snacks").bufdelete.all()
+				end,
+				desc = "Delete All Buffers",
 			},
 
 			-- Snacks Picker
@@ -265,6 +294,30 @@ return {
 					require("snacks").picker.smart()
 				end,
 				desc = "Smart Find Files",
+			},
+			-- explorer
+			{
+				"<leader>ex",
+				function()
+					require("snacks").explorer()
+				end,
+				desc = "Open File Explorer",
+			},
+
+			-- Toggle floating terminal
+			{
+				"<leader>ft",
+				function()
+					require("snacks").terminal.toggle()
+				end,
+				desc = "Toggle Terminal",
+			},
+			-- Terminal escape shortcut to exit insert mode easily
+			{
+				"<esc>",
+				[[<C-\><C-n>]],
+				mode = "t",
+				desc = "Exit Terminal Insert Mode",
 			},
 
 			-- Git Stuff

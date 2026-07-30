@@ -1,0 +1,66 @@
+2026-07-06T17:58:35.461156Z  INFO herdr::api::server: api server listening path=/home/pranab/.config/herdr/herdr.sock
+2026-07-06T17:58:35.461796Z  INFO herdr::app: using pane scrollback configuration pane_scrollback_limit_bytes=10000000
+2026-07-06T17:58:35.495379Z  INFO herdr::logging: spawning pane terminal event="pane.spawn.start" subsystem="pane" outcome="started" pane_id=1 rows=24 cols=80 scrollback_limit_bytes=10000000
+2026-07-06T17:58:35.495406Z  INFO herdr::logging: checking for updates event="update.check.start" subsystem="update" outcome="started"
+2026-07-06T17:58:35.496232Z  INFO herdr::logging: pane child spawned event="pane.spawned" subsystem="pane" outcome="ok" pane_id=1 pid=107311
+2026-07-06T17:58:35.496372Z  INFO herdr::logging: workspace created event="workspace.create" subsystem="workspace" outcome="ok" workspace_id="w1" pane_id=1
+2026-07-06T17:58:35.496377Z  INFO herdr::logging: workspace focused event="workspace.focus" subsystem="workspace" outcome="ok" workspace_id="w1"
+2026-07-06T17:58:35.496384Z  INFO herdr::logging: tab focused event="tab.focus" subsystem="tab" outcome="ok" workspace_id="w1" tab_id="w1:t1"
+2026-07-06T17:58:35.496388Z  INFO herdr::server::headless: created startup workspace cwd=/home/pranab
+2026-07-06T17:58:35.496448Z  INFO herdr::server::headless: client protocol socket listening path=/home/pranab/.config/herdr/herdr-client.sock
+2026-07-06T17:58:35.496466Z  INFO herdr::server::headless: herdr server started api_socket=/home/pranab/.config/herdr/herdr.sock client_socket=/home/pranab/.config/herdr/herdr-client.sock
+2026-07-06T17:58:35.496475Z  INFO herdr::logging: herdr starting event="app.startup" subsystem="server" outcome="started" pid=107294
+2026-07-06T17:58:35.519826Z  INFO herdr::server::headless: client connected client_id=2 cols=178 rows=45 cell_width_px=0 cell_height_px=0 render_encoding=SemanticFrame
+2026-07-06T17:58:38.961379Z  INFO herdr::logging: spawning pane terminal event="pane.spawn.start" subsystem="pane" outcome="started" pane_id=2 rows=22 cols=76 scrollback_limit_bytes=10000000
+2026-07-06T17:58:38.962258Z  INFO herdr::logging: pane child spawned event="pane.spawned" subsystem="pane" outcome="ok" pane_id=2 pid=107428
+2026-07-06T17:58:41.219724Z  INFO herdr::server::headless: client disconnected client_id=2
+2026-07-06T17:58:43.934385Z  INFO herdr::server::headless: client connected client_id=4 cols=178 rows=45 cell_width_px=0 cell_height_px=0 render_encoding=SemanticFrame
+2026-07-06T17:58:43.964245Z  INFO herdr::logging: session saved event="persist.save" subsystem="persist" outcome="ok" path=/home/pranab/.config/herdr/session.json workspaces=1
+2026-07-06T17:58:56.103959Z  INFO herdr::logging: tab focused event="tab.focus" subsystem="tab" outcome="ok" workspace_id="w1" tab_id="w1:t1"
+2026-07-06T17:58:56.497225Z  INFO herdr::logging: tab focused event="tab.focus" subsystem="tab" outcome="ok" workspace_id="w1" tab_id="w1:t1"
+2026-07-06T17:58:56.789165Z  INFO herdr::logging: tab focused event="tab.focus" subsystem="tab" outcome="ok" workspace_id="w1" tab_id="w1:t1"
+2026-07-06T17:58:57.101322Z  INFO herdr::logging: tab focused event="tab.focus" subsystem="tab" outcome="ok" workspace_id="w1" tab_id="w1:t1"
+2026-07-06T17:58:57.376189Z  INFO herdr::logging: tab focused event="tab.focus" subsystem="tab" outcome="ok" workspace_id="w1" tab_id="w1:t1"
+2026-07-06T17:59:00.284764Z  INFO herdr::server::headless: client disconnected client_id=4
+2026-07-06T17:59:02.376897Z  INFO herdr::logging: session saved event="persist.save" subsystem="persist" outcome="ok" path=/home/pranab/.config/herdr/session.json workspaces=1
+2026-07-25T13:35:06.881159Z  INFO herdr::api::server: api server listening path=/home/pranab/.config/herdr/herdr.sock
+2026-07-25T13:35:06.881912Z  INFO herdr::logging: spawning pane terminal event="pane.spawn.start" subsystem="pane" outcome="started" pane_id=1 rows=24 cols=80 scrollback_limit_bytes=10000000
+2026-07-25T13:35:06.882411Z  INFO herdr::logging: pane child spawned event="pane.spawned" subsystem="pane" outcome="ok" pane_id=1 pid=75877
+2026-07-25T13:35:06.882537Z  INFO herdr::logging: spawning pane terminal event="pane.spawn.start" subsystem="pane" outcome="started" pane_id=2 rows=24 cols=80 scrollback_limit_bytes=10000000
+2026-07-25T13:35:06.882934Z  INFO herdr::logging: pane child spawned event="pane.spawned" subsystem="pane" outcome="ok" pane_id=2 pid=75880
+2026-07-25T13:35:06.883034Z  INFO herdr::logging: session restore evaluated event="persist.restore" subsystem="persist" outcome="ok" workspaces=1
+2026-07-25T13:35:06.883041Z  INFO herdr::app: using pane scrollback configuration pane_scrollback_limit_bytes=10000000
+2026-07-25T13:35:06.927460Z  INFO herdr::logging: checking for updates event="update.check.start" subsystem="update" outcome="started"
+2026-07-25T13:35:06.928490Z  INFO herdr::server::headless: restored session already has workspaces; ignoring startup cwd cwd=/home/pranab
+2026-07-25T13:35:06.928618Z  INFO herdr::server::headless: client protocol socket listening path=/home/pranab/.config/herdr/herdr-client.sock
+2026-07-25T13:35:06.928639Z  INFO herdr::server::headless: herdr server started api_socket=/home/pranab/.config/herdr/herdr.sock client_socket=/home/pranab/.config/herdr/herdr-client.sock
+2026-07-25T13:35:06.928780Z  INFO herdr::logging: herdr starting event="app.startup" subsystem="server" outcome="started" pid=75863
+2026-07-25T13:35:06.946275Z  INFO herdr::server::headless: client connected client_id=2 cols=178 rows=45 cell_width_px=0 cell_height_px=0 render_encoding=SemanticFrame
+2026-07-25T13:35:11.829565Z  INFO herdr::logging: tab focused event="tab.focus" subsystem="tab" outcome="ok" workspace_id="w1" tab_id="w1:t1"
+2026-07-25T13:35:12.786091Z  INFO herdr::logging: tab focused event="tab.focus" subsystem="tab" outcome="ok" workspace_id="w1" tab_id="w1:t1"
+2026-07-25T13:35:13.055393Z  INFO herdr::logging: tab focused event="tab.focus" subsystem="tab" outcome="ok" workspace_id="w1" tab_id="w1:t1"
+2026-07-25T13:35:13.337445Z  INFO herdr::logging: tab focused event="tab.focus" subsystem="tab" outcome="ok" workspace_id="w1" tab_id="w1:t1"
+2026-07-25T13:35:13.578693Z  INFO herdr::logging: tab focused event="tab.focus" subsystem="tab" outcome="ok" workspace_id="w1" tab_id="w1:t1"
+2026-07-25T13:35:13.848637Z  INFO herdr::logging: tab focused event="tab.focus" subsystem="tab" outcome="ok" workspace_id="w1" tab_id="w1:t1"
+2026-07-25T13:35:14.072621Z  INFO herdr::logging: tab focused event="tab.focus" subsystem="tab" outcome="ok" workspace_id="w1" tab_id="w1:t1"
+2026-07-25T13:35:14.347642Z  INFO herdr::logging: tab focused event="tab.focus" subsystem="tab" outcome="ok" workspace_id="w1" tab_id="w1:t1"
+2026-07-25T13:35:14.583864Z  INFO herdr::logging: tab focused event="tab.focus" subsystem="tab" outcome="ok" workspace_id="w1" tab_id="w1:t1"
+2026-07-25T13:35:14.871571Z  INFO herdr::logging: tab focused event="tab.focus" subsystem="tab" outcome="ok" workspace_id="w1" tab_id="w1:t1"
+2026-07-25T13:35:15.607046Z  INFO herdr::logging: tab focused event="tab.focus" subsystem="tab" outcome="ok" workspace_id="w1" tab_id="w1:t1"
+2026-07-25T13:35:16.071100Z  INFO herdr::logging: tab focused event="tab.focus" subsystem="tab" outcome="ok" workspace_id="w1" tab_id="w1:t1"
+2026-07-25T13:35:21.073097Z  INFO herdr::logging: session saved event="persist.save" subsystem="persist" outcome="ok" path=/home/pranab/.config/herdr/session.json workspaces=1
+2026-07-25T13:35:23.676355Z  INFO herdr::logging: pane child exited event="pane.exit" subsystem="pane" outcome="completed" pane_id=1 status="ExitStatus { code: 0, signal: None }"
+2026-07-25T13:35:23.677549Z  INFO herdr::pane: pane session terminated pane=1 pid=75877 signal=Hangup
+2026-07-25T13:35:28.679619Z  INFO herdr::logging: session saved event="persist.save" subsystem="persist" outcome="ok" path=/home/pranab/.config/herdr/session.json workspaces=1
+2026-07-25T13:35:40.508607Z  INFO herdr::server::headless: client disconnected client_id=2
+2026-07-25T13:35:46.789014Z  INFO herdr::server::headless: client connected client_id=4 cols=178 rows=45 cell_width_px=0 cell_height_px=0 render_encoding=SemanticFrame
+2026-07-25T13:35:50.042798Z  INFO herdr::logging: spawning pane terminal event="pane.spawn.start" subsystem="pane" outcome="started" pane_id=3 rows=44 cols=152 scrollback_limit_bytes=10000000
+2026-07-25T13:35:50.043666Z  INFO herdr::logging: pane child spawned event="pane.spawned" subsystem="pane" outcome="ok" pane_id=3 pid=76936
+2026-07-25T13:35:50.043783Z  INFO herdr::logging: tab focused event="tab.focus" subsystem="tab" outcome="ok" workspace_id="w1" tab_id="w1:t1"
+2026-07-25T13:35:50.962500Z  INFO herdr::server::headless: client disconnected client_id=4
+2026-07-25T13:35:55.045165Z  INFO herdr::logging: session saved event="persist.save" subsystem="persist" outcome="ok" path=/home/pranab/.config/herdr/session.json workspaces=1
+2026-07-25T14:05:06.929593Z  INFO herdr::logging: checking for updates event="update.check.start" subsystem="update" outcome="started"
+2026-07-25T14:35:06.931303Z  INFO herdr::logging: checking for updates event="update.check.start" subsystem="update" outcome="started"
+2026-07-25T15:05:06.931867Z  INFO herdr::logging: checking for updates event="update.check.start" subsystem="update" outcome="started"
+2026-07-25T15:35:06.932657Z  INFO herdr::logging: checking for updates event="update.check.start" subsystem="update" outcome="started"
+2026-07-25T16:05:06.933614Z  INFO herdr::logging: checking for updates event="update.check.start" subsystem="update" outcome="started"
