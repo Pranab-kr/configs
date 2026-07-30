@@ -1,11 +1,10 @@
 .codex
 tmux/.config/tmux/plugins/**
 nvim.log
-# Ignore all files inside the herdr tree
-/herdr/**
 
-# Un-ignore the exact path to your config file
-!/herdr/
-!/herdr/.config/
-!/herdr/.config/herdr/
-!/herdr/.config/herdr/config.toml
+
+
+herdr/.config/herdr/herdr-*
+herdr/.config/herdr/session.json
+
+
