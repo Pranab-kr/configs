@@ -69,8 +69,8 @@ return {
 				-- explorer  picker
 				sources = {
 					explorer = {
-						-- your explorer picker configuration comes here
-						-- or leave it empty to use the default settings
+						hidden = true, -- Show dotfiles (.gitignore, .env, etc.)
+						ignored = true, -- Show files ignored by .gitignore
 					},
 				},
 				layout = {
@@ -146,7 +146,28 @@ return {
 				},
 			},
 
-			image = {},
+			image = {
+				enabled = true, -- Ensure the image module is on
+				formats = {
+					"png",
+					"jpg",
+					"jpeg",
+					"gif",
+					"bmp",
+					"webp",
+					"tiff",
+					"heic",
+					"avif",
+					"mp4",
+					"mov",
+					"avi",
+					"mkv",
+					"webm",
+					"pdf",
+					"icns",
+					"svg",
+				},
+			},
 			dashboard = {
 				enabled = true,
 				width = math.max(60, dashboard_art.width),
@@ -297,7 +318,8 @@ return {
 			},
 			-- explorer
 			{
-				"<leader>ex",
+
+				"<leader>el",
 				function()
 					require("snacks").explorer()
 				end,
