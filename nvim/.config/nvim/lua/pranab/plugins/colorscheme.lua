@@ -111,7 +111,7 @@ return {
 				keywordStyle = { italic = false },
 				statementStyle = { bold = true },
 				typeStyle = {},
-				transparent = false,
+				transparent = true,
 				dimInactive = false,
 				terminalColors = true,
 				colors = { -- modify theme and palette colors
