@@ -12,10 +12,25 @@ return {
 					implementation = "prefer_rust",
 				},
 				keymap = {
-					preset = "default",
-					-- ctrl + y: accept
-					-- ctrl + n p: up and down
-					-- ctrl + e: cancel accept
+					preset = "default", -- ctrl + y: accept -- ctrl + n p: up and down -- ctrl + e: cancel accept
+
+					-- ["<C-y>"] = { "select_and_accept" },
+					--
+					-- ["<C-n>"] = { "select_next", "fallback" },
+					-- ["<C-p>"] = { "select_prev", "fallback" },
+					--
+					-- ["<C-e>"] = { "cancel", "fallback" },
+					-- ["<C-Space>"] = {
+					-- 	"show",
+					-- 	"fallback",
+					-- },
+					-- ["<Up>"] = { "select_prev", "fallback" },
+					-- ["<Down>"] = { "select_next", "fallback" },
+					--
+					-- ["<Enter>"] = {
+					-- 	"accept",
+					-- 	"fallback",
+					-- },
 				},
 				completion = {
 					menu = {

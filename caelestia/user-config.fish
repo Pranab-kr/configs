@@ -5,7 +5,7 @@ alias fk="echo 'fuck you'"
 #     zoxide init fish | source
 # end
 
-set -Ux EDITOR nvim
+set -gx EDITOR nvim
 
 alias z='cd'
 
@@ -44,6 +44,7 @@ abbr md "mkdir -p"
 
 # hyprshutdown
 abbr sysshut  "hyprshutdown -t 'Shutting down...' --post-cmd 'shutdown -P 0' "
+abbr sysreboot  "hyprshutdown -t 'Restarting...' --post-cmd 'reboot' "
 abbr logout  "hyprshutdown"
 abbr nvlogout  "hyprshutdown -vt 2"
 

@@ -1,5 +1,10 @@
 {
     "appearance": {
+        "anim": {
+            "durations": {
+                "scale": 1
+            }
+        },
         "deformScale": 0,
         "transparency": {
             "enabled": false
@@ -7,14 +12,14 @@
     },
     "background": {
         "desktopClock": {
-            "enabled": true,
+            "enabled": false,
             "position": "top-right",
             "scale": 0.8
         },
         "enabled": true,
         "visualiser": {
             "blur": false,
-            "enabled": true
+            "enabled": false
         }
     },
     "bar": {
@@ -81,16 +86,36 @@
             "workspaces": true
         },
         "showOnHover": true,
-        "status": {
-            "showAudio": false,
-            "showBattery": true,
-            "showBluetooth": true,
-            "showKbLayout": false,
-            "showLockStatus": true,
-            "showMicrophone": false,
-            "showNetwork": true,
-            "showWifi": true
-        },
+        "statusIcons": [
+            {
+                "enabled": true,
+                "id": "lockStatus"
+            },
+            {
+                "enabled": false,
+                "id": "audio"
+            },
+            {
+                "enabled": false,
+                "id": "microphone"
+            },
+            {
+                "enabled": false,
+                "id": "kbLayout"
+            },
+            {
+                "enabled": true,
+                "id": "network"
+            },
+            {
+                "enabled": true,
+                "id": "bluetooth"
+            },
+            {
+                "enabled": true,
+                "id": "battery"
+            }
+        ],
         "tray": {
             "background": false,
             "compact": false,
@@ -128,17 +153,23 @@
         }
     },
     "dashboard": {
+        "enabled": true,
         "performance": {
-            "showGpu": true
-        }
+            "showGpu": true,
+            "showStorage": true
+        },
+        "showMedia": true,
+        "showOnHover": true,
+        "showWeather": true
     },
+    "enabled": true,
     "general": {
         "apps": {
             "playback": [
                 "mpv"
             ],
             "terminal": [
-                "foot"
+                "kitty"
             ]
         },
         "idle": {
@@ -161,23 +192,63 @@
                     "idleAction": [
                         "suspendThenHibernate"
                     ],
-                    "timeout": 3600
+                    "timeout": 1800
                 }
             ]
         }
     },
     "launcher": {
+        "enableDangerousActions": true,
+        "enabled": true,
         "favouriteApps": [
         ],
-        "showOnHover": false
+        "hiddenApps": [
+        ],
+        "showOnHover": false,
+        "vimKeybinds": false
     },
     "services": {
+        "audioIncrement": 0.1,
         "defaultPlayer": "Brave Origin",
         "gpuType": ""
     },
     "utilities": {
+        "cards": {
+            "quickToggles": true,
+            "recorder": true
+        },
         "enabled": true,
         "maxToasts": 4,
+        "quickToggles": [
+            {
+                "enabled": true,
+                "id": "wifi"
+            },
+            {
+                "enabled": true,
+                "id": "bluetooth"
+            },
+            {
+                "enabled": true,
+                "id": "mic"
+            },
+            {
+                "enabled": true,
+                "id": "settings"
+            },
+            {
+                "enabled": true,
+                "id": "gameMode"
+            },
+            {
+                "enabled": true,
+                "id": "dnd"
+            },
+            {
+                "enabled": false,
+                "id": "vpn"
+            }
+        ],
         "toasts": {
             "capsLockChanged": true,
             "nowPlaying": false

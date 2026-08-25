@@ -13,4 +13,4 @@ require("vim._core.ui2").enable({
 require("pranab.core")
 require("pranab.lazy")
 require("current-theme")
--- require("pranab.core.transparency").setup()
+require("pranab.core.transparency").setup()

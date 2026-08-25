@@ -87,10 +87,26 @@ return {
 	{
 		"echasnovski/mini.notify",
 		config = function()
+			-- servers whose $/progress spam should never be shown
+			-- (pyright emits a new progress token on EVERY edit, stacking
+			-- "pyright: (100%)" notifications bottom-right)
+			local hide_lsp_progress_from = { pyright = true }
 			require("mini.notify").setup({
 				content = {
 					format = function(notif)
 						return notif.msg
+					end,
+					-- runs before format on every window refresh; also usable as a filter
+					sort = function(notif_arr)
+						local shown = {}
+						for _, notif in ipairs(notif_arr) do
+							local data = notif.data or {}
+							local is_hidden = data.source == "lsp_progress" and hide_lsp_progress_from[data.client_name]
+							if not is_hidden then
+								table.insert(shown, notif)
+							end
+						end
+						return shown
 					end,
 				},
 				window = {
