@@ -363,16 +363,4 @@ return {
 			-- vim.cmd.colorscheme("everforest")
 		end,
 	},
-	-- {
-	-- 	"atdma/caelestia-nvim",
-	-- 	lazy = false,
-	-- 	priority = 1000,
-	-- 	opts = {
-	-- 		transparent = false,
-	-- 	},
-	-- 	config = function(_, opts)
-	-- 		require("caelestia").setup(opts)
-	-- 		-- vim.cmd.colorscheme("caelestia")
-	-- 	end,
-	-- },
 }
