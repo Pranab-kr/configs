@@ -13,6 +13,32 @@ hl.config({
 
 		-- kb_options = "caps:escape",
 	},
+	-- decoration = {
+	--
+	-- 	-- inactive_opacity = 1.0,
+	--
+	-- 	shadow = {
+	-- 		enabled = true,
+	-- 		range = 28,
+	-- 		render_power = 3,
+	-- 		color = "0x890a0a0a",
+	-- 	},
+	--
+	-- 	blur = {
+	-- 		enabled = true,
+	--
+	-- 		brightness = 0.8,
+	-- 		contrast = 2,
+	-- 		noise = 0,
+	-- 		vibrancy = 0.35,
+	-- 		vibrancy_darkness = 0.35,
+	--
+	-- 		passes = 2,
+	-- 		size = 13,
+	--
+	-- 		special = false,
+	-- 	},
+	-- },
 })
 
 -- Rules
@@ -31,6 +57,27 @@ hl.window_rule({
 	},
 	workspace = "special:communication",
 })
+
+hl.unbind("SUPER + ALT + SPACE")
+
+hl.bind("SUPER + ALT + SPACE", function()
+	hl.dispatch(hl.dsp.window.float({ action = "toggle" }))
+
+	local w = hl.get_active_window()
+
+	if w and w.class == "kitty" then
+		hl.dispatch(hl.dsp.window.resize({
+			x = w.monitor.width * 0.5,
+			y = w.monitor.height * 0.5,
+			relative = false,
+			window = w,
+		}))
+
+		hl.dispatch(hl.dsp.window.center({
+			window = w,
+		}))
+	end
+end)
 
 -- for mouse
 hl.device({
@@ -63,3 +110,4 @@ hl.bind("SUPER + G", hl.dsp.exec_cmd("steam"))
 hl.bind("SUPER + CTRL + V", hl.dsp.exec_cmd("$HOME/.local/bin/toggle-caelestia-visualiser"))
 
 hl.bind("SUPER + ALT + T", hl.dsp.exec_cmd("$HOME/.config/quickshell/caelestia-todo/scripts/todo-toggle.sh"))
+hl.bind("SUPER + ALT + J", hl.dsp.exec_cmd("swiftslate-tauri --run fix"))

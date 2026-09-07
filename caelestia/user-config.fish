@@ -5,6 +5,9 @@ alias fk="echo 'fuck you'"
 #     zoxide init fish | source
 # end
 
+# local bin path
+# set -U fish_user_paths ~/.local/bin $fish_user_paths
+
 set -gx EDITOR nvim
 
 alias z='cd'
@@ -15,6 +18,7 @@ alias ff="ff-random"
 abbr nt "nitch"
 abbr vim "nvim"
 alias v="nvim"
+alias ytm="ytm-cli"
 
 abbr s "paru -Ss"
 abbr au "paru -Syu"

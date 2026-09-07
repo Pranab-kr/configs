@@ -95,16 +95,29 @@ local function apply(palette, mode)
   hl("DiffDelete", { bg = blend(palette.term1, palette.surface, 0.25) })
   hl("DiffText", { bg = blend(palette.term3, palette.surface, 0.45) })
 
+  -- Keep the classic groups useful for Vim syntax files and give Tree-sitter
+  -- the same semantic palette below.  The colours intentionally map by role,
+  -- rather than by language: blue functions, purple keywords, green strings,
+  -- warm constants/types, and cyan punctuation/operators.
   hl("Comment", { fg = palette.onSurfaceVariant, italic = true })
   hl("String", { fg = palette.term2 })
+  hl("Character", { fg = palette.term2 })
   hl("Number", { fg = palette.term3 })
   hl("Boolean", { fg = palette.term3 })
+  hl("Float", { fg = palette.term3 })
   hl("Constant", { fg = palette.term3 })
   hl("Function", { fg = palette.term4 })
-  hl("Statement", { fg = palette.term5 })
+  hl("Statement", { fg = palette.term5, bold = true })
+  hl("Conditional", { fg = palette.term5, bold = true })
+  hl("Repeat", { fg = palette.term5, bold = true })
+  hl("Keyword", { fg = palette.term5, bold = true })
   hl("Operator", { fg = palette.term6 })
   hl("Type", { fg = palette.term3 })
+  hl("StorageClass", { fg = palette.term5 })
+  hl("Structure", { fg = palette.term3 })
   hl("PreProc", { fg = palette.term1 })
+  hl("Include", { fg = palette.term1 })
+  hl("Define", { fg = palette.term1 })
   hl("Special", { fg = palette.term6 })
   hl("Delimiter", { fg = palette.onSurfaceVariant })
   hl("Error", { fg = palette.error })
@@ -113,15 +126,34 @@ local function apply(palette, mode)
   hl("Identifier", { fg = palette.onSurface })
 
   local groups = {
+    -- Tree-sitter semantic captures: shared by C/C++, JS/TS/JSX/TSX, Python,
+    -- Rust, Go, Java, HTML/CSS, and every other parser that exposes them.
+    ["@comment"] = { fg = palette.onSurfaceVariant, italic = true },
     ["@variable"] = { fg = palette.onSurface }, ["@variable.builtin"] = { fg = palette.term5 },
     ["@variable.parameter"] = { fg = palette.onSurface }, ["@variable.member"] = { fg = palette.onSurface },
-    ["@property"] = { fg = palette.onSurface }, ["@function"] = { fg = palette.term4 },
+    ["@property"] = { fg = palette.onSurface }, ["@field"] = { fg = palette.onSurface },
+    ["@function"] = { fg = palette.term4 }, ["@function.call"] = { fg = palette.term4 },
+    ["@function.method"] = { fg = palette.term4 }, ["@function.method.call"] = { fg = palette.term4 },
     ["@function.builtin"] = { fg = palette.term5 }, ["@function.macro"] = { fg = palette.term1 },
-    ["@constructor"] = { fg = palette.term3 }, ["@keyword"] = { fg = palette.term5 },
-    ["@keyword.return"] = { fg = palette.term5, bold = true }, ["@string.escape"] = { fg = palette.term6 },
-    ["@type.builtin"] = { fg = palette.term3, italic = true }, ["@tag"] = { fg = palette.term4 },
-    ["@tag.attribute"] = { fg = palette.onSurface }, ["@namespace"] = { fg = palette.term3 },
-    ["@punctuation.bracket"] = { fg = palette.onSurfaceVariant }, ["@markup.heading"] = { fg = palette.primary, bold = true },
+    ["@constructor"] = { fg = palette.term3 }, ["@keyword"] = { fg = palette.term5, bold = true },
+    ["@keyword.function"] = { fg = palette.term5, bold = true }, ["@keyword.operator"] = { fg = palette.term5, bold = true },
+    ["@keyword.import"] = { fg = palette.term1, bold = true }, ["@keyword.repeat"] = { fg = palette.term5, bold = true },
+    ["@keyword.conditional"] = { fg = palette.term5, bold = true }, ["@keyword.exception"] = { fg = palette.term1, bold = true },
+    ["@keyword.return"] = { fg = palette.term5, bold = true }, ["@keyword.directive"] = { fg = palette.term1 },
+    ["@string"] = { fg = palette.term2 }, ["@string.escape"] = { fg = palette.term6 },
+    ["@string.regex"] = { fg = palette.term6 }, ["@string.special"] = { fg = palette.term6 },
+    ["@character"] = { fg = palette.term2 }, ["@number"] = { fg = palette.term3 },
+    ["@number.float"] = { fg = palette.term3 }, ["@boolean"] = { fg = palette.term3 },
+    ["@constant"] = { fg = palette.term3 }, ["@constant.builtin"] = { fg = palette.term3 },
+    ["@constant.macro"] = { fg = palette.term1 }, ["@type"] = { fg = palette.term3 },
+    ["@type.builtin"] = { fg = palette.term3, italic = true }, ["@type.definition"] = { fg = palette.term3 },
+    ["@attribute"] = { fg = palette.term1 }, ["@label"] = { fg = palette.term1 },
+    ["@operator"] = { fg = palette.term6 }, ["@punctuation.delimiter"] = { fg = palette.onSurfaceVariant },
+    ["@punctuation.bracket"] = { fg = palette.onSurfaceVariant }, ["@punctuation.special"] = { fg = palette.term6 },
+    ["@tag"] = { fg = palette.term4 }, ["@tag.builtin"] = { fg = palette.term5 },
+    ["@tag.attribute"] = { fg = palette.term3 }, ["@tag.delimiter"] = { fg = palette.term6 },
+    ["@namespace"] = { fg = palette.term3 }, ["@module"] = { fg = palette.term3 },
+    ["@markup.heading"] = { fg = palette.primary, bold = true },
     ["@markup.link"] = { fg = palette.term4, underline = true }, ["@diff.plus"] = { fg = palette.term2 },
     ["@diff.minus"] = { fg = palette.term1 },
     ["DiagnosticError"] = { fg = palette.error }, ["DiagnosticWarn"] = { fg = palette.term3 },
@@ -156,14 +188,26 @@ local function apply(palette, mode)
   hl("TelescopeMatching", { fg = palette.primary, bold = true })
   hl("TelescopePromptPrefix", { fg = palette.primary })
   hl("@lsp.type.namespace", { link = "@namespace" })
+  hl("@lsp.type.module", { link = "@module" })
   hl("@lsp.type.type", { link = "@type" })
   hl("@lsp.type.class", { link = "@type" })
+  hl("@lsp.type.struct", { link = "@type" })
+  hl("@lsp.type.interface", { link = "@type" })
+  hl("@lsp.type.enum", { link = "@type" })
+  hl("@lsp.type.typeParameter", { link = "@type" })
   hl("@lsp.type.parameter", { link = "@variable.parameter" })
   hl("@lsp.type.property", { link = "@property" })
-  hl("@lsp.type.enumMember", { link = "@number" })
+  hl("@lsp.type.variable", { link = "@variable" })
+  hl("@lsp.type.enumMember", { link = "@constant" })
   hl("@lsp.type.function", { link = "@function" })
   hl("@lsp.type.method", { link = "@function" })
-  hl("@lsp.type.macro", { link = "@function.macro" })
+  hl("@lsp.type.macro", { link = "@constant.macro" })
+  hl("@lsp.type.keyword", { link = "@keyword" })
+  hl("@lsp.type.comment", { link = "@comment" })
+  hl("@lsp.type.string", { link = "@string" })
+  hl("@lsp.type.number", { link = "@number" })
+  hl("@lsp.type.operator", { link = "@operator" })
+  hl("@lsp.type.decorator", { link = "@attribute" })
   hl("@lsp.typemod.variable.readonly", { fg = palette.term3 })
 end
 

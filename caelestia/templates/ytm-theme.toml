@@ -1,0 +1,8 @@
+preset = "tokyonight"
+accent = "#{{ primary.hex }}"
+fg = "#{{ text.hex }}"
+fg_dim = "#{{ subtext0.hex }}"
+fg_bright = "#{{ text.hex }}"
+bg_sel = "#{{ surfaceContainerHigh.hex }}"
+error = "#{{ error.hex }}"
+success = "#{{ success.hex }}"
