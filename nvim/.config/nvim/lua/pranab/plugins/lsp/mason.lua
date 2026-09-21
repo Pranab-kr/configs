@@ -38,6 +38,7 @@ return {
 				"rust_analyzer",
 				"pyright",
 				"clangd",
+				"astro",
 			},
 		})
 
@@ -47,6 +48,7 @@ return {
 				"prettier",
 				"stylua",
 				"isort",
+				"black",
 				"pylint",
 				"clangd",
 				"denols",

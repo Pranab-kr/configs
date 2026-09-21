@@ -147,25 +147,53 @@ return {
 			},
 
 			image = {
-				enabled = true, -- Ensure the image module is on
-				formats = {
-					"png",
-					"jpg",
-					"jpeg",
-					"gif",
-					"bmp",
-					"webp",
-					"tiff",
-					"heic",
-					"avif",
-					"mp4",
-					"mov",
-					"avi",
-					"mkv",
-					"webm",
-					"pdf",
-					"icns",
-					"svg",
+				-- enabled = true, -- Ensure the image module is on
+				-- formats = {
+				-- 	"png",
+				-- 	"jpg",
+				-- 	"jpeg",
+				-- 	"gif",
+				-- 	"bmp",
+				-- 	"webp",
+				-- 	"tiff",
+				-- 	"heic",
+				-- 	"avif",
+				-- 	"mp4",
+				-- 	"mov",
+				-- 	"avi",
+				-- 	"mkv",
+				-- 	"webm",
+				-- 	"pdf",
+				-- 	"icns",
+				-- 	"svg",
+				-- },
+				enabled = function()
+					return vim.bo.filetype == "markdown"
+				end,
+				doc = {
+					float = false, -- show image on cursor hover
+					inline = false, -- show image inline
+					max_width = 50,
+					max_height = 30,
+					wo = {
+						wrap = false,
+					},
+				},
+				convert = {
+					notify = true,
+					command = "magick",
+				},
+				img_dirs = {
+					"img",
+					"images",
+					"assets",
+					"static",
+					"public",
+					"media",
+					"attachments",
+					"Archives/All-Vault-Images/",
+					"~/Library",
+					"~/Downloads",
 				},
 			},
 			dashboard = {
@@ -267,25 +295,11 @@ return {
 
 			-- Snacks Picker
 			{
-				"<leader>pf",
+				"<leader><space>",
 				function()
-					require("snacks").picker.files()
+					require("snacks").picker.smart()
 				end,
 				desc = "Find Files (Snacks Picker)",
-			},
-			{
-				"<leader>pc",
-				function()
-					require("snacks").picker.files({ cwd = "~/.config/nvim/lua" })
-				end,
-				desc = "Find Config File",
-			},
-			{
-				"<leader>ps",
-				function()
-					require("snacks").picker.grep()
-				end,
-				desc = "Grep word",
 			},
 			{
 				"<leader>pws",
@@ -309,16 +323,8 @@ return {
 				end,
 				desc = "Buffers",
 			},
-			{
-				"<leader><space>",
-				function()
-					require("snacks").picker.smart()
-				end,
-				desc = "Smart Find Files",
-			},
 			-- explorer
 			{
-
 				"<leader>el",
 				function()
 					require("snacks").explorer()

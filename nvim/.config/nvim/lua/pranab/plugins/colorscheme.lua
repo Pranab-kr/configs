@@ -111,7 +111,7 @@ return {
 				keywordStyle = { italic = false },
 				statementStyle = { bold = true },
 				typeStyle = {},
-				transparent = true,
+				transparent = false,
 				dimInactive = false,
 				terminalColors = true,
 				colors = { -- modify theme and palette colors
@@ -264,7 +264,7 @@ return {
 		"loctvl842/monokai-pro.nvim",
 		config = function()
 			require("monokai-pro").setup({
-				transparent_background = true,
+				transparent_background = false,
 			})
 		end,
 	},

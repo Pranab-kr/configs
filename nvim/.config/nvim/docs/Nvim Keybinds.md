@@ -19,7 +19,7 @@ Parent note: [[Nvim Config]]
 - `<leader>sr`: global search and replace for word under cursor
 - `<leader>X`: make current file executable
 - `<leader>ff`: LSP format current file
-- `<leader>mp`: format file or visual selection with Conform
+- `<leader>mp`: format file or visual selection with Conform (Python: `isort` + `black`, Markdown: `prettier`, Lua: `stylua`, Web: `biome`/`prettier`)
 - `<leader>cw`: trim trailing whitespace
 - `sj`: join arguments or split structures back together
 - `sk`: split arguments or structures across lines
@@ -64,12 +64,13 @@ Parent note: [[Nvim Config]]
 - `<leader>el`: open the Snacks file explorer
 - `<leader>fp`: copy current file path to clipboard
 - `<leader>ft`: toggle floating terminal (Snacks)
-- `<leader>pf`: find files with Snacks picker
+- `<leader>pf`: fast file search (fff.nvim)
+- `<leader>ps`: live fuzzy grep (fff.nvim)
+- `<leader>pgf`: find files in git root (fff.nvim)
+- `<leader>pcf`: find files in Neovim config (fff.nvim)
+- `<leader><space>`: smart find files (Snacks picker)
 - `<leader>pb`: find buffer with Snacks picker
-- `<leader><space>`: smart file search (Snacks)
-- `<leader>pc`: find files inside your Neovim config lua folder
-- `<leader>ps`: grep project
-- `<leader>pws`: grep current word or visual selection
+- `<leader>pws`: grep current word or visual selection (Snacks picker)
 - `<leader>pWs`: grep current `WORD` under cursor with Telescope
 - `<leader>pk`: search keymaps
 - `<leader>pr`: recent files
@@ -128,6 +129,20 @@ These only exist after an LSP attaches to the buffer.
 - `zR`: open all folds
 - `zM`: close all folds
 - `za`: toggle fold under cursor
+- `Left Click` on `` / `` in gutter: click to fold / unfold block (statuscol.nvim)
+
+## Markdown (inside Markdown buffers)
+
+- `tn`: toggle numbered list on current line (or visual selection)
+- `tb`: toggle bullet list on current line (or visual selection)
+- `tc`: toggle checkbox on current line (or visual selection)
+- `tt`: toggle task state (done/undone) on current line (or visual selection)
+- `tl`: smart list toggle (cycles bullet -> checkbox -> number -> plain)
+- `<leader>tc`: mark all tasks done in buffer
+- `<leader>tu`: mark all tasks undone in buffer
+- `<leader>h1` to `<leader>h6`: toggle heading levels H1 through H6
+- formatted with `prettier` on save or `<leader>mp`
+
 
 ## Git
 

@@ -89,12 +89,14 @@ Mental model: think "surround add / delete / change" mapped onto `sa` / `ds` / `
 
 ## Picker Split
 
-You are using both Snacks and Telescope, but for different jobs.
+You use `fff.nvim`, Snacks, and Telescope for different jobs:
 
-- Snacks is the default picker layer for files, grep, keymaps, Git branches, help, colorschemes, and TODO lists
-- Telescope is still used for LSP references/definitions and a couple of targeted commands like recent files and `WORD` grep
+- **`fff.nvim`**: ultra-fast Rust-based file finder (`<leader>pf`) and live fuzzy grep (`<leader>ps`). Honors `.gitignore` and `.ignore`.
+- **Snacks**: smart finder (`<leader><space>`), buffers (`<leader>pb`), keymaps (`<leader>pk`), Git branches, help, and TODOs.
+- **Telescope**: LSP references/definitions and targeted queries like `WORD` grep.
 
-Mental model: Snacks is the general launcher; Telescope stays for LSP-heavy or already-working flows.
+Mental model: `fff.nvim` is your primary fast code finder; Snacks is the general picker/utility launcher; Telescope stays for LSP workflows.
+
 
 ## Git Workflow Opinions
 
@@ -124,8 +126,8 @@ It avoids surprise state when jumping between unrelated folders.
 
 Formatting and linting are separate on purpose.
 
-- formatting runs on save through Conform
-- `<leader>mp` forces formatting now
+- formatting runs on save through Conform (Python: `isort` + `black`, Markdown: `prettier`, Lua: `stylua`, Web: `biome-check`/`prettier`)
+- `<leader>mp` forces formatting now (supports visual range format)
 - linting auto-runs on `BufEnter`, `BufWritePost`, and `InsertLeave`
 - `<leader>l` forces linting now
 
@@ -140,6 +142,13 @@ Trailing whitespace cleanup is explicit.
 
 Small detail, but it keeps cleanup visible without being annoying.
 
+## Markdown Productivity & Rendering
+
+Markdown gets dedicated editing utilities and live preview:
+
+- `after/ftplugin/markdown.lua` provides fast line and visual toggles for numbers (`tn`), bullets (`tb`), checkboxes (`tc`), task completion (`tt`), smart lists (`tl`), and headings (`<leader>h1`-`h6`).
+- `render-markdown.nvim` delivers live in-buffer rendering (concealing raw markdown syntax and styling headings, code blocks, tables, and checkboxes) with dynamic colors that inherit directly from your active theme.
+
 ## TODO System
 
 Your TODO setup is more than plain `TODO:`.
@@ -153,13 +162,15 @@ You can navigate with `[t` and `]t`, open a larger list with `<leader>xt`, inspe
 
 ## Folding Setup
 
-Folding uses `nvim-ufo` with Treesitter plus indent fallback.
+Folding uses `nvim-ufo` backed by Treesitter and indent fallback, paired with `statuscol.nvim`:
 
 - folds start effectively open because `foldlevel` and `foldlevelstart` are high
-- `zM` closes all
-- `zR` opens all
+- `statuscol.nvim` provides clean gutter arrows (`` open, `` closed) without ugly fold-level digits
+- clicking the arrow with your mouse folds / unfolds the block directly
+- keyboard fold commands: `za` (toggle), `zM` (close all), `zR` (open all)
 
-Mental model: folding is available when you need it, not forced on you at startup.
+Mental model: folding is clickable in the gutter like a modern IDE, or driven by keyboard when preferred.
+
 
 ## Completion Behavior
 

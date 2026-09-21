@@ -37,8 +37,8 @@ return {
 				graphql = { "prettier" },
 				liquid = { "prettier" },
 				lua = { "stylua" },
-				markdown = { "mdformat", "markdownlint-cli2", "markdown-toc" },
-				-- python = { "black" },
+				markdown = { "prettier", "markdownlint-cli2", "markdown-toc" },
+				python = { "isort", "black" },
 			},
 			format_on_save = {
 				lsp_fallback = true,

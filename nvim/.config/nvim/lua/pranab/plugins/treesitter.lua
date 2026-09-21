@@ -32,6 +32,8 @@ return {
 				"java",
 				"rust",
 				"ron",
+				"markdown",
+				"markdown_inline",
 			}
 
 			treesitter.install(ensure_installed)

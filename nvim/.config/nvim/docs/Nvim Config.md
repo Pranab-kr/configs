@@ -20,7 +20,10 @@ These notes are based on your actual config in `~/.config/nvim`, not generic Vim
 - editing polish: `<leader>d`, `x`, `p` in visual mode
 - surround: `sa`, `ds`, `ca`
 - search and replace: `<leader>sr`
-- files and search: `<leader>pf`, `<leader>ps`, `<leader>pk`, `<leader>pr`
+- files and search: `fff.nvim` (`<leader>pf`, `<leader>ps`, `<leader>pgf`), Snacks (`<leader><space>`, `<leader>pb`, `<leader>pk`)
+- markdown editing: `tn`, `tb`, `tc`, `tt`, `tl`, `<leader>tc`/`tu`, `<leader>h1`-`h6`
+- folding: click ``/`` in gutter with mouse, or `za`, `zR`, `zM`
+- formatting: `<leader>mp` or format-on-save via Conform (`isort`+`black` for Python, `prettier` for Markdown)
 - window control: `<leader>s*` and `<leader>t*`
 - git: `<leader>g*`, `<leader>gg`, `<leader>lg`
 - LSP: `gd`, `gR`, `gi`, `gt`, `K`, `<leader>rn`, `<leader>vca`

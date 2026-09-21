@@ -261,10 +261,23 @@ return {
 				"typescriptreact",
 				"svelte",
 				"vue",
+				"astro",
 			},
 			init_options = {
 				userLanguages = {
 					astro = "html",
+				},
+			},
+		})
+
+		-- astro
+		vim.lsp.config("astro", {
+			filetypes = { "astro" },
+
+			init_options = {
+				typescript = {
+					tsdk = vim.fn.stdpath("data")
+						.. "/mason/packages/typescript-language-server/node_modules/typescript/lib",
 				},
 			},
 		})
@@ -282,6 +295,7 @@ return {
 			"marksman",
 			"rust_analyzer",
 			"clangd",
+			"astro",
 			"pyright",
 		})
 	end,
