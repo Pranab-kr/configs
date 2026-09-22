@@ -41,9 +41,21 @@ Parent note: [[Nvim Config]]
 - `<C-u>`: half-page up and re-center
 - `n`: next search result and re-center
 - `N`: previous search result and re-center
+- `<C-o>`: jump backward in jumplist (previous location)
+- `<C-i>`: jump forward in jumplist (next location)
 
-## Tabs And Splits
+## Flash (Navigation & Motions)
 
+- `s`: Flash jump (fuzzy multi-window search motion with labels)
+- `S`: Flash Treesitter (select syntax tree nodes)
+- `r` in operator-pending mode: Remote Flash (operate on a distant target without moving cursor)
+- `R` in operator/visual mode: Treesitter Search
+- `<C-s>` in command-line search mode: toggle Flash search on/off during regular `/` or `?`
+
+## Buffers, Tabs, And Splits
+
+- `<S-l>`: next buffer (BufferLine)
+- `<S-h>`: previous buffer (BufferLine)
 - `<leader>to`: new tab
 - `<leader>tx`: close current tab
 - `<leader>tn`: next tab

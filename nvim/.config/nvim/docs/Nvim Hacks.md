@@ -183,3 +183,26 @@ Completion moved from `nvim-cmp` to `blink.cmp`, running its stock `default` pre
 - the Rust fuzzy matcher (`prefer_rust`) is used for ranking
 
 Mental model: completion is now the boring, predictable default set rather than a hand-tuned `Tab` state machine — fewer surprises, standard blink muscle memory.
+
+## Buffer Cycling vs Jumplist (<S-h> / <S-l> vs <Tab> / <C-i>)
+
+Buffer cycling uses `<S-l>` (next buffer) and `<S-h>` (previous buffer) instead of `<Tab>` and `<S-Tab>`.
+
+Why this matters:
+- In terminal emulators, `<C-i>` and `<Tab>` send the exact same ASCII byte sequence (`0x09`).
+- When `<Tab>` is mapped in normal mode, Neovim intercepts `<C-i>` as `<Tab>`, hijacking your forward jump in the jumplist.
+- Moving buffer cycling to `<S-l>` and `<S-h>` leaves `<C-i>` completely unshadowed, ensuring `<C-o>` (jump back) and `<C-i>` (jump forward) both work reliably across all jumps.
+
+Mental model: `<S-h>` and `<S-l>` slide left/right across buffers, keeping `<C-o>` / `<C-i>` exclusively for your historical jump stack.
+
+## Flash Navigation & Remote Operations
+
+`flash.nvim` provides fast 2-character / fuzzy label-based motion jumping across windows and syntax trees.
+
+Key capabilities:
+- `s`: regular Flash jump. Type search characters, then the displayed label to land instantly.
+- `S`: Flash Treesitter. Highlights syntax tree scopes around your cursor so you can jump to or visually select enclosing code blocks with one keystroke.
+- `r` (Remote Flash in operator-pending mode): perform an operation on a distant target without moving your cursor (e.g. `yr{search}{label}` to yank text elsewhere while staying in place).
+- `jumplist = true`: every flash jump automatically registers in the jumplist, so you can bounce back with `<C-o>` and return with `<C-i>`.
+
+Mental model: search motions replace repetitive `w`/`b`/`f`/`t` movements with a direct 2-step hop to any visible position.

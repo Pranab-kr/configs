@@ -4,8 +4,8 @@ return {
 	version = "*",
 	event = "VeryLazy", -- Loads right after the main editor UI initializes
 	keys = {
-		{ "<Tab>", "<cmd>BufferLineCycleNext<cr>", desc = "Next Buffer" },
-		{ "<S-Tab>", "<cmd>BufferLineCyclePrev<cr>", desc = "Previous Buffer" },
+		{ "<S-l>", "<cmd>BufferLineCycleNext<cr>", desc = "Next Buffer" },
+		{ "<S-h>", "<cmd>BufferLineCyclePrev<cr>", desc = "Previous Buffer" },
 	},
 	opts = {
 		options = {

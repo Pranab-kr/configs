@@ -16,7 +16,9 @@ These notes are based on your actual config in `~/.config/nvim`, not generic Vim
 
 ## Fast Memory Hooks
 
-- movement polish: `J`, `n`, `N`, `<C-d>`, `<C-u>`
+- movement polish: `J`, `n`, `N`, `<C-d>`, `<C-u>`, `<C-o>` / `<C-i>` (jumplist)
+- navigation & motions: `s` (Flash jump), `S` (Flash Treesitter), `r` (Remote Flash)
+- buffer cycling: `<S-l>` (next buffer), `<S-h>` (previous buffer)
 - editing polish: `<leader>d`, `x`, `p` in visual mode
 - surround: `sa`, `ds`, `ca`
 - search and replace: `<leader>sr`
