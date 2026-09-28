@@ -1,17 +1,14 @@
 return {
-	"dmtrKovalenko/fff.nvim",
+	"dmtrKovalenko/fff", -- repo renamed from fff.nvim -> fff
 	enabled = true,
 	build = function()
-		-- this will download prebuild binary or try to use existing rustup toolchain to build from source
-		-- (if you are using lazy you can use gb for rebuilding a plugin if needed)
+		-- downloads a prebuilt binary or falls back to cargo build from source
+		-- (use `gb` in lazy.nvim to rebuild the plugin if needed)
 		require("fff.download").download_or_build_binary()
 	end,
-	lazy = false,
+	lazy = false, -- the plugin lazy-initialises itself
 	config = function()
 		require("fff").setup({
-			install = {
-				timeout = 1200, -- 20 minutes - should be plenty
-			},
 			title = "Find Files", -- Window title
 			max_results = 100, -- Maximum search results to display
 			max_threads = 4, -- Maximum threads for fuzzy search
@@ -22,25 +19,16 @@ return {
 				width = 0.75, -- Window width as fraction of screen
 				height = 0.85, -- Window height as fraction of screen
 				prompt_position = "bottom", -- or 'top'
-				preview_position = "right", -- or 'left', 'right', 'top', 'bottom'
+				preview_position = "right", -- 'left' | 'right' | 'top' | 'bottom'
 				preview_size = 0.5,
-				flex = false,
 			},
 			preview = {
 				enabled = true,
-				max_lines = 100,
-				max_size = 10 * 1024 * 1024, -- 1MB
+				max_size = 10 * 1024 * 1024, -- 10MB
 				chunk_size = 8192,
 				binary_file_threshold = 1024,
 				line_numbers = false,
 				wrap_lines = false,
-				show_file_info = true,
-				history = {
-					enabled = true,
-					db_path = vim.fn.stdpath("data") .. "/fff_queries",
-					min_combo_count = 3, -- file will get a boost if it was selected 3 in a row times per specific query
-					combo_boost_score_multiplier = 100, -- Score multiplier for combo matches
-				},
 			},
 			keymaps = {
 				close = { "<C-c>", "<Esc>" },
@@ -48,16 +36,19 @@ return {
 				select_split = "<C-s>",
 				select_vsplit = "<C-v>",
 				select_tab = "<C-t>",
-				-- Multiple bindings supported
 				move_up = { "<Up>", "<C-p>", "<C-k>" },
 				move_down = { "<Down>", "<C-n>", "<C-j>" },
 				preview_scroll_up = "<C-u>",
 				preview_scroll_down = "<C-d>",
 			},
 			git = {
-				status_text_color = true, -- Enable git status colors on filename text
+				status_text_color = true, -- color filenames by git status
+				recency = {
+					enabled = true, -- boost files touched in recent commits
+					max_commits = 10,
+					max_files_per_commit = 50,
+				},
 			},
-			-- Highlight groups
 			hl = {
 				border = "FloatBorder",
 				normal = "Normal",
@@ -68,12 +59,12 @@ return {
 				active_file = "Visual",
 				frecency = "Number",
 				debug = "Comment",
-				git_staged = "FFFGitStaged", -- Files staged for commit
-				git_modified = "FFFGitModified", -- Modified unstaged files
-				git_deleted = "FFFGitDeleted", -- Deleted files
-				git_renamed = "FFFGitRenamed", -- Renamed files
-				git_untracked = "FFFGitUntracked", -- New untracked files
-				git_ignored = "FFFGitIgnored", -- Git-ignored files
+				git_staged = "FFFGitStaged",
+				git_modified = "FFFGitModified",
+				git_deleted = "FFFGitDeleted",
+				git_renamed = "FFFGitRenamed",
+				git_untracked = "FFFGitUntracked",
+				git_ignored = "FFFGitIgnored",
 			},
 			frecency = {
 				enabled = true,
@@ -82,12 +73,12 @@ return {
 			history = {
 				enabled = true,
 				db_path = vim.fn.stdpath("data") .. "/fff_queries",
-				min_combo_count = 3, -- file will get a boost if it was selected 3 in a row times per specific query
-				combo_boost_score_multiplier = 100, -- Score multiplier for combo matches
+				min_combo_count = 3, -- boost files selected 3x in a row for a query
+				combo_boost_score_multiplier = 100,
 			},
-			-- Debug options
 			debug = {
-				show_scores = false, -- Toggle with F2 or :FFFDebug
+				show_scores = false, -- toggle with F2 or :FFFDebug
+				show_file_info = true, -- file info panel above the preview
 			},
 		})
 	end,
@@ -108,7 +99,7 @@ return {
 					},
 				})
 			end,
-			desc = "Live fffuzy grep word",
+			desc = "Live fuzzy grep",
 		},
 		{
 			"<leader>pgf",
@@ -120,7 +111,7 @@ return {
 		{
 			"<leader>pcf",
 			function()
-				require("fff").find_files_in_dir("~/my-config/nvim/.config/nvim/") -- Find files in a specific directory
+				require("fff").find_files_in_dir("~/my-config/nvim/.config/nvim/")
 			end,
 			desc = "Find files in specified path",
 		},

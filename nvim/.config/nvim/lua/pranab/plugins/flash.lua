@@ -36,7 +36,7 @@ return {
 			-- enable flash during regular / and ? search
 			-- (toggle any time with <C-s> in search mode)
 			search = {
-				enabled = true,
+				enabled = false,
 			},
 			-- enhanced f, F, t, T motions (enabled by default)
 			char = {
