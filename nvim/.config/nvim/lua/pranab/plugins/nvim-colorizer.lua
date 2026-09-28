@@ -25,6 +25,14 @@ return {
 							update_names = true,
 						},
 					},
+					display = {
+						mode = "virtualtext",
+						virtualtext = {
+							char = "󱓻",
+							position = "before",
+							hl_mode = "foreground",
+						},
+					},
 				},
 				filetypes = {
 					"html",

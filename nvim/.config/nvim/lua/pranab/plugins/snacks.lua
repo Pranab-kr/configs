@@ -325,7 +325,7 @@ return {
 			},
 			-- explorer
 			{
-				"<leader>el",
+				"<M-n>",
 				function()
 					require("snacks").explorer()
 				end,

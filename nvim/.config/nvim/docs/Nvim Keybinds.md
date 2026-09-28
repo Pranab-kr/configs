@@ -73,7 +73,7 @@ Parent note: [[Nvim Config]]
 - `<leader>-`: toggle Oil float
 - `<leader>ee`: open MiniFiles explorer
 - `<leader>ef`: open MiniFiles focused on current file
-- `<leader>el`: open the Snacks file explorer
+- `<M-n>`: open the Snacks file explorer
 - `<leader>fp`: copy current file path to clipboard
 - `<leader>ft`: toggle floating terminal (Snacks)
 - `<leader>pf`: fast file search (fff.nvim)
@@ -216,6 +216,18 @@ Completion is now handled by `blink.cmp` using its `default` keymap preset (sour
 - `<S-Tab>`: jump backward in snippet
 
 Auto-brackets on accept are enabled; ghost text is off.
+
+## GitHub Copilot
+
+Inline ghost text suggestions trigger automatically in insert mode (suggestions auto-pause while the `blink.cmp` completion menu is open).
+
+- `<M-l>` (`Alt+l`): accept full Copilot suggestion
+- `<C-Right>`: accept next word of suggestion
+- `<C-l>`: accept next line of suggestion
+- `<M-]>`: cycle to next Copilot suggestion
+- `<M-[>`: cycle to previous Copilot suggestion
+- `<C-]>`: dismiss Copilot suggestion
+- `<M-CR>`: open Copilot suggestion panel
 
 ## Fugitive Buffer Only
 
