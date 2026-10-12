@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+set -uo pipefail
+
+PNG_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/fastfetch/pngs"
+mkdir -p "$PNG_DIR"
+
+# Select a random image from PNG_DIR if any exist
+IMAGE="$(find "$PNG_DIR" -maxdepth 1 -type f \( \
+    -iname '*.png' -o \
+    -iname '*.jpg' -o \
+    -iname '*.jpeg' -o \
+    -iname '*.webp' \
+\) 2>/dev/null | shuf -n 1)"
+
+if [ -n "$IMAGE" ]; then
+    exec fastfetch --logo "$IMAGE" "$@"
+else
+    exec fastfetch "$@"
+fi
