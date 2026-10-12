@@ -2,10 +2,4 @@
 tmux/.config/tmux/plugins/**
 nvim.log
 lazy-lock.json
-
-
-
-herdr/.config/herdr/herdr-*
-herdr/.config/herdr/session.json
-
-
+tmux/.config/tmux/themes
